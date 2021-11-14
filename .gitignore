@@ -24,3 +24,4 @@ react-client/yarn-error.log*
 
 # rust
 wasm/target
+wasm-build
