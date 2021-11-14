@@ -5,5 +5,5 @@
 ```
 root -- react-client <- React project, which handles view logic 
      |
-     -- wasm         <- rust project, which handles compulation
+     -- wasn         <- rust project, which handles compulation
 ```
