@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+
+const fibFn = (n: number): number => {
+  if (n === 0 || n === 1) {
+    return n;
+  }
+  return fibFn(n - 1) + fibFn(n - 2);
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [fib, setFib] = useState<number>(0);
+
+  useEffect(() => {
+    console.time("javascript");
+    const fibResult = fibFn(20);
+    console.timeEnd("javascript");
+  }, []);
+
+  import("wasm").then(({ fib }) => {
+    console.time("wasm");
+    const fibResult = fib(50);
+    console.timeEnd("wasm");
+  });
+
+  return <div className="App"></div>;
 }
 
 export default App;
